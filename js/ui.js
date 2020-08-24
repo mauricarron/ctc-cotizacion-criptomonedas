@@ -3,6 +3,11 @@ class Interfaz {
     const div = document.createElement("div");
     div.classList = clases;
     div.appendChild(document.createTextNode(mensaje));
-    console.log(div);
+
+    const $mensajes = document.querySelector(".mensajes");
+    $mensajes.appendChild(div);
+    setTimeout(() => {
+      document.querySelector(".mensajes div").remove();
+    }, 3000);
   }
 }
