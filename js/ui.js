@@ -10,7 +10,10 @@ class Interfaz {
   construirSelect() {
     COTIZADOR.obtenerMonedasAPI().then((monedas) => {
       for (const [key, value] of Object.entries(monedas.Data)) {
-        console.log(key);
+        const select = document.createElement("option");
+        select.value = value.Symbol;
+        select.appendChild(document.createTextNode(value.CoinName));
+        document.querySelector("select#criptomoneda").appendChild(select);
       }
     });
   }

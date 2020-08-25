@@ -20,6 +20,10 @@ $formulario.addEventListener("submit", (e) => {
       "alert bg-danger text-centered"
     );
   } else {
-    // seguir con el programa
+    COTIZADOR.obtenerValores(monedaSeleccionada, criptomonedaSeleccionada).then(
+      (data) => {
+        console.log(data);
+      }
+    );
   }
 });
