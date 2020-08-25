@@ -33,12 +33,19 @@ class Interfaz {
   mostrarResultado(resultado, moneda, criptomoneda) {
     const datosMoneda = resultado[criptomoneda][moneda];
     let precio = datosMoneda.PRICE.toFixed(2);
+    let variacion = datosMoneda.CHANGEPCTDAY.toFixed(2);
+    let actualizado = new Date(
+      datosMoneda.LASTUPDATE * 1000
+    ).toLocaleDateString("es-AR");
+
     let templateHTML = `
         <div class="card bg-success">
             <div class="card-body">
                 <h2 class="card-title">Resultado: </h2>
                 <p>El precio de ${datosMoneda.FROMSYMBOL} a moneda ${datosMoneda.TOSYMBOL}
                 es de: $${precio}</p>
+                <p>Variación último día: %${variacion}</p>
+                <p>Última Actualización: ${actualizado}</p>
             </div>
         </div>
     `;
