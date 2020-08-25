@@ -31,6 +31,18 @@ class Interfaz {
   }
 
   mostrarResultado(resultado, moneda, criptomoneda) {
-    console.log(resultado[criptomoneda][moneda]);
+    const datosMoneda = resultado[criptomoneda][moneda];
+    let precio = datosMoneda.PRICE.toFixed(2);
+    let templateHTML = `
+        <div class="card bg-success">
+            <div class="card-body">
+                <h2 class="card-title">Resultado: </h2>
+                <p>El precio de ${datosMoneda.FROMSYMBOL} a moneda ${datosMoneda.TOSYMBOL}
+                es de: $${precio}</p>
+            </div>
+        </div>
+    `;
+
+    document.querySelector("#resultado").innerHTML = templateHTML;
   }
 }
