@@ -9,7 +9,9 @@ class Interfaz {
 
   construirSelect() {
     COTIZADOR.obtenerMonedasAPI().then((monedas) => {
-      console.log(monedas);
+      for (const [key, value] of Object.entries(monedas.Data)) {
+        console.log(key);
+      }
     });
   }
 

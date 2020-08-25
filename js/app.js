@@ -1,7 +1,7 @@
-const UI = new Interfaz();
 const COTIZADOR = new API(
   "48f64a369405db70882eebbe18c6e531eb6e8905c737d810cc726411d985cd2f"
 );
+const UI = new Interfaz();
 
 const $formulario = document.querySelector("#formulario");
 $formulario.addEventListener("submit", (e) => {
