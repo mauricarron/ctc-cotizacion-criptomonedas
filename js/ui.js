@@ -29,4 +29,8 @@ class Interfaz {
       document.querySelector(".mensajes div").remove();
     }, 3000);
   }
+
+  mostrarResultado(resultado, moneda, criptomoneda) {
+    console.log(resultado[criptomoneda][moneda]);
+  }
 }

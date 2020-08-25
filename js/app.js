@@ -22,7 +22,11 @@ $formulario.addEventListener("submit", (e) => {
   } else {
     COTIZADOR.obtenerValores(monedaSeleccionada, criptomonedaSeleccionada).then(
       (data) => {
-        console.log(data);
+        UI.mostrarResultado(
+          data.RAW,
+          monedaSeleccionada,
+          criptomonedaSeleccionada
+        );
       }
     );
   }
