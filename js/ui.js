@@ -31,6 +31,12 @@ class Interfaz {
   }
 
   mostrarResultado(resultado, moneda, criptomoneda) {
+    const resultadoAnterior = document.querySelector("#resultado > div");
+
+    if (resultadoAnterior) {
+      resultadoAnterior.remove();
+    }
+
     const datosMoneda = resultado[criptomoneda][moneda];
     let precio = datosMoneda.PRICE.toFixed(2);
     let variacion = datosMoneda.CHANGEPCTDAY.toFixed(2);
@@ -50,6 +56,15 @@ class Interfaz {
         </div>
     `;
 
-    document.querySelector("#resultado").innerHTML = templateHTML;
+    this.mostrarOcultarSpinner("block");
+    setTimeout(() => {
+      this.mostrarOcultarSpinner("none");
+      document.querySelector("#resultado").innerHTML = templateHTML;
+    }, 1200);
+  }
+
+  mostrarOcultarSpinner(display) {
+    const spinner = document.querySelector(".contenido-spinner");
+    spinner.style.display = display;
   }
 }
